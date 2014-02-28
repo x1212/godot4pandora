@@ -124,16 +124,14 @@ def configure(env):
                 env.Append(CPPFLAGS=['-DOPENGL_ENABLED','-DGLEW_ENABLED'])
 	#env.Append(CPPFLAGS=["-DRTAUDIO_ENABLED"])
 	env.Append(CPPFLAGS=["-DALSA_ENABLED"])
-	env.Append(CPPFLAGS=['-DX11_ENABLED','-DUNIX_ENABLED','-DGLES2_ENABLED','-DGLES1_ENABLED','-DGLES_OVER_GL'])
+	env.Append(CPPFLAGS=['-DX11_ENABLED','-DUNIX_ENABLED','-DGLES2_ENABLED','-DGLES1_ENABLED'])
+	#env.Append(CPPFLAGS=['-DX11_ENABLED','-DUNIX_ENABLED','-DGLES2_ENABLED','-DGLES1_ENABLED','-DGLES_OVER_GL'])
 #        env.Append(CPPFLAGS=['-DX11_ENABLED','-DUNIX_ENABLED','-DGLES2_ENABLED','-DGLES_OVER_GL'])
-	env.Append(LIBS=['GL', 'GLU', 'pthread','asound','z']) #TODO detect linux/BSD!
+	env.Append(LIBS=['c','m','stdc++','GLESv2', 'EGL', 'GLES_CM', 'pthread','asound','z','Xau','Xdmcp','Xrender','IMGegl','srv_um','Xfixes']) #TODO detect linux/BSD!
 	#env.Append(CPPFLAGS=['-DMPC_FIXED_POINT'])
 	if (env["force_32_bits"]=="yes"):
 		env.Append(CPPFLAGS=['-m32'])
 		env.Append(LINKFLAGS=['-m32','-L/usr/lib/i386-linux-gnu'])
-		env['OBJSUFFIX'] = ".32"+env['OBJSUFFIX']
-		env['LIBSUFFIX'] = ".32"+env['LIBSUFFIX']
-
 
 	if (env["CXX"]=="clang++"):
 		env.Append(CPPFLAGS=['-DTYPED_METHOD_BIND'])

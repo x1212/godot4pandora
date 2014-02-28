@@ -52,6 +52,7 @@
 ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
 */
 
+#if defined(GLEW_ENABLED)
 #ifndef __wglew_h__
 #define __wglew_h__
 #define __WGLEW_H__
@@ -1287,3 +1288,4 @@ GLEWAPI GLboolean wglewGetExtension (const char* name);
 #undef GLEWAPI
 
 #endif /* __wglew_h__ */
+#endif /* GLEW_ENABLED */
